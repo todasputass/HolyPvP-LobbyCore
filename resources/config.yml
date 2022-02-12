@@ -1,0 +1,55 @@
+# Server Name Settings
+# Here you must put the name of your server, which will be placed in several 
+# places within your server automatically
+server-name: "§6Holy PvP Network"
+
+floating: "5:63:0"
+
+WebhookGamemodeLogs: "https://discord.com/api/webhooks/936993532089098372/ZfGMMgw9xcanBZokNxpG6bxUzwRwOSy4h6o34a60wdRjAzNqa9cuzfMWZHHpugrkjFOC"
+
+# Server Info Settins
+# Here you must add all the data of your server, this data will be shown in a 
+# default message to the players when entering the server
+server-storelink: "§o§7store.holypvp.net"
+server-twitterlink: "twitter.com/holypvpnet"
+server-discordlink: "ts.holypvp.net"
+server-youtubelink: "youtube.com/itoozh"
+
+# Server MOTD Settings
+# Server custom MOTD, here we can edit the MOTD of your server and put what you like
+server-motd: "&6&lGreek &r&f| &7Lobby"
+
+# Servers for Transfer Settings
+# Here you must configure the servers to which the NPC and the Compass will take you, 
+# by adding them here you will automatically have them in the Form of the compass and 
+# you can also create the NPCs with the command /npc add (server name)
+# Use: {n} for \n and {players} for online players in the server
+servers.available:
+  - name: HCF 
+    format: "&6&lHCF&r{n}-------------------{n}&f{players} Online{n}&7&l&oCLICK TO PLAY!&r{n}-------------------{n}{n} {n}"
+    address: "199.127.62.88:19060"
+  - name: Practice
+    format: "&6&lPRACTICE&r{n}-------------------{n}&f{players} Online{n}&7&l&oCLICK TO PLAY!&r{n}-------------------{n}"
+    address: "199.127.62.88:19327"
+  - name: UHC
+    format: "&6&lUHC&r{n}-------------------{n}&f{players} Online{n}&7&l&oCLICK TO PLAY!&r{n}-------------------{n}"
+    address: "uhc.greekmc.net:19132"
+
+# ScoreBoard Settings
+# Here you can configure the scoreboard, from the title to the lines you want them 
+# to have, you can use {players_count}, {player_ping}, {player_nick} to further 
+# customize your scoreboard
+scoreboard.title: §6§lHoly §7| §fHub
+scoreboard.lines:
+  - '&7-------------------'  
+  - ' &6Rank:'
+  - ' §r§fDefault'
+  - '&7&r&b'
+  - ' &6Online:'
+  - ' §r§f{players_count}'
+  - '&7&r'
+  - ' &7&oholypvp.net'
+  - '&7-------------------&r'
+
+
+

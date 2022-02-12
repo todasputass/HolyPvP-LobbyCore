@@ -1,0 +1,15 @@
+name: HolyPvP-Lobby
+author: itoozh
+main: Lobby\Main
+version: 0.0.1
+api: 4.0.0
+permissions:
+  fly.lobby:
+    description: Use this command to get fly
+    default: op
+  gm.lobby:
+    description: Use this command to change the gm
+    default: op
+  rainbow.armor.permission:
+    description: Use this command to change the gm
+    default: op
