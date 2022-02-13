@@ -37,13 +37,22 @@ class EventListener implements Listener
         # Welcome message
         $event->setJoinMessage(TextFormat::colorize(" "));
         $pos = explode(':', $config->get('floating'));
-        $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$pos[0], (int)$pos[1], (int)$pos[2]), new FloatingTextParticle("", "§r§eWelcome to " . $config->get("server-name")), [$player]);
+        $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$pos[0], (int)$pos[1], (int)$pos[2]), new FloatingTextParticle("", "§r§eWelcome to §l" . $config->get("server-name") . ' "§r§l§6The Reborn"'), [$player]);
         $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$pos[0], (int)$pos[1] - 0.50, (int)$pos[2]), new FloatingTextParticle("", "§r§fUsa el selector para explorar las §r§emodalidades§r§f."), [$player]);
         $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$pos[0], (int)$pos[1] - 1, (int)$pos[2]), new FloatingTextParticle("", "§r§a§l25% OFF SALE"), [$player]);
         $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$pos[0], (int)$pos[1] - 1.25, (int)$pos[2]), new FloatingTextParticle("", "§r§6Activo por tiempo limitado!"), [$player]);
-        $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$pos[0], (int)$pos[1] - 1.75, (int)$pos[2]), new FloatingTextParticle("", $config->get("server-storelink")), [$player]);
-        //$bossbar = new BossBarAPI();
-        //$bossbar->sendBossBar($player, TextFormat::colorize($config->get("scoreboard.title")), 0, "0", 0);
+        $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$pos[0], (int)$pos[1] - 1.75, (int)$pos[2]), new FloatingTextParticle("", "§7§ohttps://" . $config->get("server-storelink")), [$player]);
+
+        $shoppos = explode(':', $config->get('shopfloating'));
+        $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$shoppos[0], (int)$shoppos[1], (int)$shoppos[2]), new FloatingTextParticle("", "§r§f§k|§r §r§l§6Nueva Tienda §r§f§k|"), [$player]);
+        $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$shoppos[0], (int)$shoppos[1] - 0.50, (int)$shoppos[2]), new FloatingTextParticle("", ""), [$player]);
+        $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$shoppos[0], (int)$shoppos[1] - 0.75, (int)$shoppos[2]), new FloatingTextParticle("", "§r§fUtiliza el comando §6/shop §fpara adquirir"), [$player]);
+        $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$shoppos[0], (int)$shoppos[1] - 1, (int)$shoppos[2]), new FloatingTextParticle("", "§r§fRangos, Crates Keys, Prefijos, Kits, y mas!"), [$player]);
+        $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$shoppos[0], (int)$shoppos[1] - 1.50, (int)$shoppos[2]), new FloatingTextParticle("", "§r§fAdquiere §6Coinsp §fpara utilizar aqui"), [$player]);
+        $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$shoppos[0], (int)$shoppos[1] - 1.75, (int)$shoppos[2]), new FloatingTextParticle("", "§r§fdesde nuestra §6web-store§f."), [$player]);
+        $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$shoppos[0], (int)$shoppos[1] - 2, (int)$shoppos[2]), new FloatingTextParticle("", "§6" . $config->get("server-storelink")), [$player]);
+        $player->getServer()->getWorldManager()->getDefaultWorld()?->addParticle(new Vector3((int)$shoppos[0], (int)$shoppos[1] - 2.25, (int)$shoppos[2]), new FloatingTextParticle("", ""), [$player]);
+
     }
 
     public function onQuit(PlayerQuitEvent $event): void

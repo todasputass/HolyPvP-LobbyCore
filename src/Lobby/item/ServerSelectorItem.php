@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Lobby\item;
 
 
+use Lobby\Main;
 use muqsit\invmenu\type\InvMenuTypeIds;
 use pocketmine\item\ItemIdentifier;
 use pocketmine\item\ItemIds;
@@ -36,8 +37,9 @@ class ServerSelectorItem extends LobbyItem
         $menu->setListener(function (InvMenuTransaction $transaction): InvMenuTransactionResult {
             $player = $transaction->getPlayer();
 
-            if($transaction->getItemClicked()->getCustomName() === "HCF"){
-                $player->transfer("1100.100.100", 19132);
+            if($transaction->getItemClicked()->getCustomName() === "§r§l§6HCF §r§a*$50 PAYPAL*"){
+                $config = Main::getInstance()->getConfig();
+                $player->transfer($config->get("HCF-IP"), $config->get("HCF-PORT"));
             }
             return $transaction->discard();
         });
