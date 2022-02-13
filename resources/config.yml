@@ -24,7 +24,7 @@ server-motd: "&6&lHoly &r&f| &7Hub"
 # Servers Settings
 
 #HCF Settings
-HCF-NAME: §r§l§6HCF §r§a*$50 PAYPAL* #Todo es configurable desde el nombre hasta la ip y puerto de las 3 modalidades
+HCF-NAME: §r§l§6HCF §r§a*$50 PAYPAL*
 HCF-IP: greekmc.net
 HCF-PORT: 19132
 #KITMAP Settings
