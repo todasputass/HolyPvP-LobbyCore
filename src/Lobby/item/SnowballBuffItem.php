@@ -11,9 +11,8 @@ use pocketmine\item\ItemIds;
 use pocketmine\item\ItemUseResult;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
-use pocketmine\world\sound\EndermanTeleportSound;
 
-class EnderPearlBuffItem extends LobbyItem
+class SnowballBuffItem extends LobbyItem
 {
 
     public function __construct()
@@ -23,8 +22,7 @@ class EnderPearlBuffItem extends LobbyItem
 
     public function onClickAir(Player $player, Vector3 $directionVector): ItemUseResult
     {
-        $world = $player->getWorld();
-        $player->setMotion($player->getDirectionVector()->multiply(1.6));
+        $player->setMotion($player->getDirectionVector()->multiply(1.8));
         return ItemUseResult::FAIL();
     }
 }

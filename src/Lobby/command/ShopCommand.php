@@ -1,32 +1,38 @@
 <?php
 
-namespace Lobby\item;
+declare(strict_types=1);
+
+namespace Lobby\command;
+
 
 use muqsit\invmenu\InvMenu;
 use muqsit\invmenu\transaction\InvMenuTransaction;
 use muqsit\invmenu\transaction\InvMenuTransactionResult;
 use muqsit\invmenu\type\InvMenuTypeIds;
 use pocketmine\block\VanillaBlocks;
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
 use pocketmine\data\bedrock\EnchantmentIdMap;
 use pocketmine\item\enchantment\EnchantmentInstance;
 use pocketmine\item\ItemFactory;
-use pocketmine\item\ItemIdentifier;
-use pocketmine\item\ItemIds;
 use pocketmine\item\ItemUseResult;
 use pocketmine\item\VanillaItems;
-use pocketmine\math\Vector3;
-use pocketmine\player\Player;
+use pocketmine\Player\player;
+use pocketmine\utils\TextFormat;
 
-class StoreItem extends LobbyItem
+class ShopCommand extends Command
 {
 
     public function __construct()
     {
-        parent::__construct(new ItemIdentifier(ItemIds::CHEST, 0), "§r§6Holy Store §r§7(Right Click)");
+        parent::__construct('shop', '');
     }
 
-    public function onClickAir(Player $player, Vector3 $directionVector): ItemUseResult
+    public function execute(CommandSender $sender, string $commandLabel, array $args): void
     {
+        if (!$sender instanceof Player) {
+            return;
+        }
         $menu = InvMenu::create(InvMenuTypeIds::TYPE_CHEST);
         $red = ItemFactory::getInstance()->get(160, 14)->setCustomName(" ")->setLore(["§r "])->addEnchantment(new EnchantmentInstance(EnchantmentIdMap::getInstance()->fromId(1), 1));
         $green = ItemFactory::getInstance()->get(160, 13)->setCustomName(" ")->setLore(["§r "])->addEnchantment(new EnchantmentInstance(EnchantmentIdMap::getInstance()->fromId(1), 1));
@@ -55,34 +61,30 @@ class StoreItem extends LobbyItem
         $menu->setListener(function (InvMenuTransaction $transaction): InvMenuTransactionResult {
             $player = $transaction->getPlayer();
 
-            if($transaction->getItemClicked()->getCustomName() === "§r§6Ranks"){
+            if ($transaction->getItemClicked()->getCustomName() === "§r§6Ranks") {
                 $player->sendMessage("§r§cComing Soon!");
             }
-            if($transaction->getItemClicked()->getCustomName() === "§r§l§6Punishments") {
+            if ($transaction->getItemClicked()->getCustomName() === "§r§l§6Punishments") {
                 $player->sendMessage("§r§cComing Soon!");
             }
-            if($transaction->getItemClicked()->getCustomName() === "§r§l§6Rank Upgrades") {
+            if ($transaction->getItemClicked()->getCustomName() === "§r§l§6Rank Upgrades") {
                 $player->sendMessage("§r§cComing Soon!");
             }
-            if($transaction->getItemClicked()->getCustomName() === "§r§l§6VIP Status") {
+            if ($transaction->getItemClicked()->getCustomName() === "§r§l§6VIP Status") {
                 $player->sendMessage("§r§cComing Soon!");
             }
-            if($transaction->getItemClicked()->getCustomName() === "§r§l§6Kits") {
+            if ($transaction->getItemClicked()->getCustomName() === "§r§l§6Kits") {
                 $player->sendMessage("§r§cComing Soon!");
             }
-            if($transaction->getItemClicked()->getCustomName() === "§r§l§6Your Coins") {
+            if ($transaction->getItemClicked()->getCustomName() === "§r§l§6Your Coins") {
                 $player->sendMessage("§r§cComing Soon!");
             }
-            if($transaction->getItemClicked()->getCustomName() === "§r§l§6Keys") {
+            if ($transaction->getItemClicked()->getCustomName() === "§r§l§6Keys") {
                 $player->sendMessage("§r§cComing Soon!");
             }
             return $transaction->discard();
         });
-        $menu->send($player);
-        return ItemUseResult::SUCCESS();
+        $menu->send($sender);
     }
-
 }
-{
 
-}

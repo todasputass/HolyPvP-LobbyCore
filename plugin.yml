@@ -10,6 +10,3 @@ permissions:
   gm.lobby:
     description: Use this command to change the gm
     default: op
-  rainbow.armor.permission:
-    description: Use this command to change the gm
-    default: op

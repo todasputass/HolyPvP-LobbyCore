@@ -28,18 +28,27 @@ class ServerSelectorItem extends LobbyItem
     {
         $menu = InvMenu::create(InvMenuTypeIds::TYPE_DOUBLE_CHEST);
         $menu->setName("§r§8Servers");
+        $config = Main::getInstance()->getConfig();
         $menu->getInventory()->setContents([
-            20 => VanillaItems::DIAMOND_SWORD()->setCustomName("§r§l§6HCF §r§a*$50 PAYPAL*")->setLore(["§r§7✸ §r§ePlayers: §f0 \n\n§r§7✸ §r§eMap Kit: §fProt 2, Sharp 2 \n§r§7✸ §r§eFaction Size: §f8 Man \n§r§7✸ §r§eSOTW§7 » §fDomingos, 4PMEST."]),
-            22 => VanillaItems::BOW()->setCustomName("§r§l§6Kits")->setLore(["§r§7✸ §r§ePlayers: §f0 \n\n§r§7✸ §r§eMap Kit: §fProt 2, Sharp 2 \n§r§7✸ §r§eFaction Size: §f20 Man \n§r§7✸ §r§eSOTW§7 » §f11/12/21 3PM EST."]),
-            24 => VanillaItems::HEALING_SPLASH_POTION()->setCustomName("§r§l§6Practice")->setLore(["§r§7✸ §r§ePlayers: §f0 \n\n§r§7✸ §r§eUnranked, Ranked & Parties\n§r§7✸ §r§eAutomated Events and Tournaments\n§r§7✸ §r§eTeamfighting Simulator"]),
+            20 => VanillaItems::DIAMOND_SWORD()->setCustomName($config->get("HCF-NAME"))->setLore(["§r§7✸ §r§ePlayers: §f0 \n\n§r§7✸ §r§eMap Kit: §fProt 2, Sharp 2 \n§r§7✸ §r§eFaction Size: §f8 Man \n§r§7✸ §r§eSOTW§7 » §fDomingos, 4PMEST."]),
+            22 => VanillaItems::BOW()->setCustomName($config->get("KITMAP-NAME"))->setLore(["§r§7✸ §r§ePlayers: §f0 \n\n§r§7✸ §r§eMap Kit: §fProt 2, Sharp 2 \n§r§7✸ §r§eFaction Size: §f20 Man \n§r§7✸ §r§eSOTW§7 » §f11/12/21 3PM EST."]),
+            24 => VanillaItems::HEALING_SPLASH_POTION()->setCustomName($config->get("PRACTICE-NAME"))->setLore(["§r§7✸ §r§ePlayers: §f0 \n\n§r§7✸ §r§eUnranked, Ranked & Parties\n§r§7✸ §r§eAutomated Events and Tournaments\n§r§7✸ §r§eTeamfighting Simulator"]),
         ]);
 
         $menu->setListener(function (InvMenuTransaction $transaction): InvMenuTransactionResult {
             $player = $transaction->getPlayer();
+            $config = Main::getInstance()->getConfig();
 
-            if($transaction->getItemClicked()->getCustomName() === "§r§l§6HCF §r§a*$50 PAYPAL*"){
-                $config = Main::getInstance()->getConfig();
+            if($transaction->getItemClicked()->getCustomName() === $config->get("HCF-NAME")){
                 $player->transfer($config->get("HCF-IP"), $config->get("HCF-PORT"));
+            }
+            if($transaction->getItemClicked()->getCustomName() === $config->get("KITMAP-NAME")){
+                $config = Main::getInstance()->getConfig();
+                $player->transfer($config->get("KITMAP-IP"), $config->get("KITMAP-PORT"));
+            }
+            if($transaction->getItemClicked()->getCustomName() === $config->get("PRACTICE-NAME")){
+                $config = Main::getInstance()->getConfig();
+                $player->transfer($config->get("PRACTICE-IP"), $config->get("PRACTICE-PORT"));
             }
             return $transaction->discard();
         });

@@ -6,8 +6,8 @@ namespace Lobby\session;
 
 use Exception;
 use Lobby\item\CosmeticsItem;
+use Lobby\item\SnowballBuffItem;
 use Lobby\item\StoreItem;
-use Lobby\item\EnderPearlBuffItem;
 use Lobby\item\ServerSelectorItem;
 use Lobby\Main;
 use pocketmine\player\GameMode;
@@ -46,14 +46,14 @@ class Session
             TextFormat::colorize("&r&f"),
             TextFormat::colorize("           §r§fWelcome to " . $config->get("server-name") . " §6Network"),
             TextFormat::colorize("§r§f✪ &r&cStore:§r§f " . $config->get("server-storelink")),
-            TextFormat::colorize("§r§f✪ &r&aTeamSpeak:§r§f " . $config->get("server-discordlink")),
+            TextFormat::colorize("§r§f✪ &r&aTeamSpeak:§r§f " . $config->get("server-tslink")),
             TextFormat::colorize("§r§f✪ &r&cDiscord:§r§f " . $config->get("server-twitterlink")),
             TextFormat::colorize("§r§f✪ &r&aCoins:§r§f 0"),
             TextFormat::colorize("&r&f"),
             TextFormat::colorize("&r&f"),
             TextFormat::colorize("&r&e     You have been auto-logged as premiun user"),
             TextFormat::colorize("&r&f"),
-        ];
+        ]; #En el caso que quieran remover algo del mensaje de bienvenida solo basta con agregar dos // al principio de la linea
         $this->player->sendMessage(implode("\n", $join_message));
         $this->player->sendTitle("§r§aAuto-Logged");
         $this->player->sendSubTitle("§r§eThanks for playing with us :D!");
@@ -73,7 +73,7 @@ class Session
         $this->player->getInventory()->setItem(8, new CosmeticsItem());
         $this->player->getInventory()->setItem(7, new StoreItem());
         $this->player->getInventory()->setItem(0, new ServerSelectorItem());
-        $this->player->getInventory()->setItem(1, new EnderPearlBuffItem());
+        $this->player->getInventory()->setItem(1, new SnowballBuffItem());
     }
 
     public function teleportToLobbyWorld(): void

@@ -3,9 +3,9 @@
 # places within your server automatically
 server-name: "§6HolyPvP"
 
-floating: "5:63:0"
+floating: "5:66:0"
 
-shopfloating: "5:63:10"
+shopfloating: "20:65:0"
 
 WebhookGamemodeLogs: "https://discord.com/api/webhooks/936993532089098372/ZfGMMgw9xcanBZokNxpG6bxUzwRwOSy4h6o34a60wdRjAzNqa9cuzfMWZHHpugrkjFOC"
 
@@ -13,23 +13,34 @@ WebhookGamemodeLogs: "https://discord.com/api/webhooks/936993532089098372/ZfGMMg
 # Here you must add all the data of your server, this data will be shown in a 
 # default message to the players when entering the server
 server-storelink: "store.holypvp.net"
-server-twitterlink: "twitter.com/holypvpnet"
-server-discordlink: "ts.holypvp.net"
+server-twitterlink: "twitter.com/holypvpnet" #Los mensajes automaticos agarran automaticamente los datos de la store, no neceistan editar nada del codigo, unicamente la config a su gusto :*
+server-tslink: "ts.holypvp.net"
+server-discordlink: "discord.gg/holypvp"
 
 # Server MOTD Settings
 # Server custom MOTD, here we can edit the MOTD of your server and put what you like
-server-motd: "&6&lGreek &r&f| &7Lobby"
+server-motd: "&6&lHoly &r&f| &7Hub"
 
-# Servers for Transfer Settings
+# Servers Settings
 
+#HCF Settings
+HCF-NAME: §r§l§6HCF §r§a*$50 PAYPAL* #Todo es configurable desde el nombre hasta la ip y puerto de las 3 modalidades
 HCF-IP: greekmc.net
 HCF-PORT: 19132
+#KITMAP Settings
+KITMAP-NAME: §r§l§6Kits
+KITMAP-IP: greekmc.net
+KITMAP-PORT: 19132
+#PRACTICE Settings
+PRACTICE-NAME: §r§l§6Practice
+PRACTICE-IP: greekmc.net
+PRACTICE-PORT: 19132
 
 # ScoreBoard Settings
 # Here you can configure the scoreboard, from the title to the lines you want them 
 # to have, you can use {players_count}, {player_ping}, {player_nick} to further 
 # customize your scoreboard
-scoreboard.title: §6§lHoly §r§7| §l§fHub
+scoreboard.title: "§r§c♥ §6§lHolyPvP §r§c♥"
 scoreboard.lines:
   - '&7'
   - ' &6Rank:'
